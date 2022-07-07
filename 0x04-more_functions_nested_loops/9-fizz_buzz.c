@@ -1,37 +1,29 @@
-#include "main.h"
-
+#include <stdio.h>
+void fizz_buzz(void);
 /**
- * times_table - prints the 9 times table
- * Description: prints the 9 times table
- * Return: void
-*/
-void times_table(void)
+ * main - entry point for function
+ * Return: always 0
+ */
+int main(void)
 {
-	int r, c, d;
+	int i;
 
-	for (r = 0; r <= 9; r++)
+	i = 1;
+	while (i <= 100)
 	{
-		_putchar('0');
-		_putchar(',');
-		_putchar(' ');
-		for (c = 1; c <= 9; c++)
-		{
-			d = (r * c);
-			if ((d / 10) > 0)
-			{
-				_putchar((d / 10) + '0');
-			}
-			else
-			{
-				_putchar(' ');
-			}
-			_putchar((d % 10) + '0');
-			if (c < 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-		}
-		_putchar('\n');
+		if ((i % 3 == 0) && (i % 5 == 0))
+			printf("FizzBuzz");
+		else if (i % 3 == 0)
+			printf("Fizz");
+		else if (i % 5 == 0)
+			printf("Buzz");
+		else
+			printf("%d", i);
+		if (i == 100)
+			break;
+		putchar(' ');
+		i++;
 	}
-}}
+	putchar('\n');
+	return (0);
+}
